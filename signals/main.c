@@ -84,7 +84,7 @@ int main(int argc, char ** argv)
     		exit(EXIT_FAILURE);    
   	if(sigaction(SIGUSR2, &act_zero, NULL) == -1)
     		exit(EXIT_FAILURE);
-    	//1) также идет race condition между обработчиком и родителем за counter
+    	//1) race condition
 
   	sigaddset(&set, SIGUSR1);
   	sigaddset(&set, SIGUSR2);
@@ -159,7 +159,7 @@ int main(int argc, char ** argv)
 
   	return (0);
 }
-
+/*
   	errno = 0;
  	do {	
     		if(counter == 0)
@@ -173,4 +173,4 @@ int main(int argc, char ** argv)
   	} while (1);
 
   	return (0);
-}
+}*/
